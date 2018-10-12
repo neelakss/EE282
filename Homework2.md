@@ -36,5 +36,6 @@ on a Unix/Linux filesystem from their home directory with a colleague without ex
 question should require an answer using chmod {u,g,o}{+,-}{r,w,x} (not using octal permissions).
    * **Hint 1:** in order to view a file, all of its parent directories must be executable
    * **Hint 2:** in order to view a file, the file itself must be readable  
->**Question:**  Write a code to change the 
+>**Question:**  Write a code to change the permissions for a new directory called "New_Dir" in your parent directory, which
+would now be easily acessible to other people without using the octal permissions.  
 **Answer:**
