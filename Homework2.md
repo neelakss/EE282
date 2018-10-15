@@ -8,7 +8,7 @@ question should require an answer using at least the following commands/concepts
 >**Question:**  Write a code on the terminal that would allow you to make a new directory named *"MyDir"*. After creating an
  empty document called *"First_Document"* which needs to be copied to the parent directory, this newly created directory 
  needs to be deleted.  
-**Answer:**   
+**Answer:** 
 Option 1 :
 <pre><code>$ mkdir MyDir
 $ cd ./MyDir
@@ -31,7 +31,12 @@ indices versus accessing a column in a data frame with text indices. Your questi
 following: mymatrix[,'col1'] vs. mydf[,'col1'] vs. mydf['col1'] vs. mydf$col1 vs. mydf[['col1']].  
 >**Question:**  After creating a dataframe and a matrix of your choice, explain various ways of calling the first column for 
 each of those, without using the index value of 1.  
-**Answer:**  
+**Answer:** The code given below explains various ways of calling the first column of both the data frame and matrix without 
+actually using the index value for the said column.
+There is essentially only a single way for calling a column or a row of a matrix as given below. The command "_mymatrix[,'col1',drop=F]_" gives the first column of the matrix in a matrix form and doesn't drop the dimentions of the matrix 
+to that of a vector.  
+For a dataframe however, there is more than a single way to do the same as the matrix can be subsetted like a list as well as a 
+matrix. The commands "_mydf[,'Name']_", "_mydf[['Name']]_" and "_mydf$Name_" return the same information (in the same format i.e as Factors)  which is the column named "_Name_" as a vector. However, the command "_mydf['Name']_" returns the column as it is, and the information can be considered as another dataframe (sub-dataframe).
 <pre><code>
 require('RCurl')
 mlbweightdfurl <- 'http://goo.gl/rih9v9'
@@ -45,7 +50,7 @@ mydf[['Name']]
 mymatrix <- matrix(data = 1:12, nrow = 3, ncol = 4, byrow = TRUE)
 dimnames(mymatrix) <- list(c('row1', 'row2', 'row3'), c('col1', 'col2','col3','col4'))
 print(mymatrix)
-mymatrix[,'col1'] 
+mymatrix[,'col1',drop=F] 
 </code></pre> 
 3. Ask a question that requires a student to understand how to share access to a directory and a file in that directory 
 on a Unix/Linux filesystem from their home directory with a colleague without exposing the user's entire directory. Your 
