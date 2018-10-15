@@ -29,17 +29,14 @@ $ rm -r MyDir
 2. Ask a question that requires a student to understand the difference between accessing a column in a matrix with text 
 indices versus accessing a column in a data frame with text indices. Your question should require an answer comparing the 
 following: mymatrix[,'col1'] vs. mydf[,'col1'] vs. mydf['col1'] vs. mydf$col1 vs. mydf[['col1']].  
->**Question:**  
+>**Question:**  After creating a dataframe and a matrix of your choice, explain various ways of calling the first column for 
+each of those, without using the index value of 1.  
 **Answer:**  
 <pre><code>
 require('RCurl')
 mlbweightdfurl <- 'http://goo.gl/rih9v9'
 mlb.weight.df <- textConnection(getURL(mlbweightdfurl, followlocation  = TRUE))
 mydf<- read.table(mlb.weight.df, header = TRUE)
-#mlb.weight.df.subset <- head(mlb.weight.df)
-mydf[,1] 
-mydf[1] 
-mydf[[1]]
 mydf[,'Name'] 
 mydf['Name'] 
 mydf$Name 
@@ -48,16 +45,15 @@ mydf[['Name']]
 mymatrix <- matrix(data = 1:12, nrow = 3, ncol = 4, byrow = TRUE)
 dimnames(mymatrix) <- list(c('row1', 'row2', 'row3'), c('col1', 'col2','col3','col4'))
 print(mymatrix)
-mymatrix[,1] 
 mymatrix[,'col1'] 
-</code></pre>
+</code></pre> 
 3. Ask a question that requires a student to understand how to share access to a directory and a file in that directory 
 on a Unix/Linux filesystem from their home directory with a colleague without exposing the user's entire directory. Your 
 question should require an answer using chmod {u,g,o}{+,-}{r,w,x} (not using octal permissions).
    * **Hint 1:** in order to view a file, all of its parent directories must be executable
    * **Hint 2:** in order to view a file, the file itself must be readable  
->**Question:**  Write a code to change the permissions for a new directory called "New_Dir" and a file inside the said directory 
-called "New_File" in your parent directory, which would now be easily acessible to other people without using the octal permissions.  
+>**Question:**  Write a code to change the permissions for a new directory called "New_Dir" (and a file inside the said directory 
+called "New_File") in your parent directory, which would now be easily acessible to other people without using the octal permissions.  
 **Answer:**  
 <pre><code>$ cd ~
 $ mkdir New_Dir
