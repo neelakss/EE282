@@ -10,21 +10,21 @@ question should require an answer using at least the following commands/concepts
  needs to be deleted.  
 **Answer:** 
 Option 1 :
-<pre><code>$ mkdir MyDir
-$ cd ./MyDir
-$ touch First_Document
-$ cp First_Document ../
-$ rm First_Document
-$ cd..
-$ rmdir MyDir
+<pre><code>$ mkdir MyDir  # makes directory
+$ cd ./MyDir              # changes directory
+$ touch First_Document    # creates a file if its not already present
+$ cp First_Document ../   # copies the document from one directory to another
+$ rm First_Document       # deletes the document
+$ cd ..
+$ rmdir MyDir             # deletes directory
 </code></pre>  
 Option 2:
 <pre><code>$ mkdir MyDir
 $ cd ./MyDir
 $ touch First_Document
 $ cp First_Document ../
-$ cd..
-$ rm -r MyDir
+$ cd ..
+$ rm -r MyDir             # deletes directory even if the directory is not empty
 </code></pre> 
 2. Ask a question that requires a student to understand the difference between accessing a column in a matrix with text 
 indices versus accessing a column in a data frame with text indices. Your question should require an answer comparing the 
@@ -42,15 +42,15 @@ require('RCurl')
 mlbweightdfurl <- 'http://goo.gl/rih9v9'
 mlb.weight.df <- textConnection(getURL(mlbweightdfurl, followlocation  = TRUE))
 mydf<- read.table(mlb.weight.df, header = TRUE)
-mydf[,'Name'] 
-mydf['Name'] 
-mydf$Name 
-mydf[['Name']]
+mydf[,'Name']                     # calls column as vector
+mydf['Name']                      # calls column as a dataframe
+mydf$Name                         # calls column as vector
+mydf[['Name']]                    # calls column as vector
 
 mymatrix <- matrix(data = 1:12, nrow = 3, ncol = 4, byrow = TRUE)
 dimnames(mymatrix) <- list(c('row1', 'row2', 'row3'), c('col1', 'col2','col3','col4'))
 print(mymatrix)
-mymatrix[,'col1',drop=F] 
+mymatrix[,'col1',drop=F]          # calls column as a matrix
 </code></pre> 
 3. Ask a question that requires a student to understand how to share access to a directory and a file in that directory 
 on a Unix/Linux filesystem from their home directory with a colleague without exposing the user's entire directory. Your 
@@ -62,8 +62,8 @@ called "New_File") in your parent directory, which would now be easily acessible
 **Answer:**  
 <pre><code>$ cd ~
 $ mkdir New_Dir
-$ ls -l
-$ chmod go+x New_Dir
+$ ls -l                           # lists files and their permissions along with the date they were created
+$ chmod go+x New_Dir              # changes access permissions
 $ cd ./New_Dir
 $ touch New_file
 $ ls -l
