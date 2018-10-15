@@ -32,7 +32,7 @@ following: mymatrix[,'col1'] vs. mydf[,'col1'] vs. mydf['col1'] vs. mydf$col1 vs
 >**Question:**  After creating a dataframe and a matrix of your choice, explain various ways of calling the first column for 
 each of those, without using the index value of 1.  
 **Answer:** The code given below explains various ways of calling the first column of both the data frame and matrix without 
-actually using the index value for the said column.
+actually using the index value for the said column.  
 There is essentially only a single way for calling a column or a row of a matrix as given below. The command "_mymatrix[,'col1',drop=F]_" gives the first column of the matrix in a matrix form and doesn't drop the dimentions of the matrix 
 to that of a vector.  
 For a dataframe however, there is more than a single way to do the same as the matrix can be subsetted like a list as well as a 
