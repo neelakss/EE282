@@ -86,8 +86,8 @@ $ tr -d -C 'A\|T\|G\|C\|N' <*.gz | wc -c
 </code></pre> 
 > 2. Total number of Ns
 <pre><code>
-$ grep -c 'N' *.gz
+$ tr -d -C 'N' <*.gz | wc -c
 </code></pre> 
 <pre><code>
-81114
+172319
 </code></pre> 
