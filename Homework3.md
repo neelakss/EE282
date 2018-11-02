@@ -79,10 +79,10 @@ md5sum: WARNING: 21 of 22 listed files could not be read
 #### Calculate the following for the whole genome
 > 1. Total number of nucleotides
 <pre><code>
-$ tr -d -C 'A\|T\|G\|C\|N' <*.gz | wc -c
+$ tr -d -C 'A\|T\|G\|C\|N' <*.gz | tr -d '|' | wc -c
 </code></pre> 
 <pre><code>
-1000622
+837890
 </code></pre> 
 > 2. Total number of Ns
 <pre><code>
