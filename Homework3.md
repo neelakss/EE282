@@ -98,3 +98,46 @@ $zgrep -c "^>" *.gz
 <pre><code>
 1870
 </code></pre>
+
+### Summarize an annotation file
+#### Getting the data
+Go to the most current download genomes section at flybase.org and download the gzipped gtf annotation file for D. melanogaster.
+>In order to download the data from the given website, we can use wget or curl. 
+<pre><code>
+$ wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/gtf/*
+</code></pre> 
+<pre><code>
+--2018-11-02 13:09:55--  ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/gtf/*
+           => ".listing"
+Resolving ftp.flybase.net... 52.23.126.124
+Connecting to ftp.flybase.net|52.23.126.124|:21... connected.
+Logging in as anonymous ... Logged in!
+==> SYST ... done.    ==> PWD ... done.
+==> TYPE I ... done.  ==> CWD (1) /genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/gtf ... done.
+==> PASV ... done.    ==> LIST ... done.
+
+    [ <=>                                   ] 266         --.-K/s   in 0s      
+
+2018-11-02 13:09:56 (45.4 MB/s) - ".listing" saved [266]
+
+Removed ".listing".
+--2018-11-02 13:09:56--  ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/gtf/dmel-all-r6.24.gtf.gz
+           => "dmel-all-r6.24.gtf.gz"
+==> CWD not required.
+==> PASV ... done.    ==> RETR dmel-all-r6.24.gtf.gz ... done.
+Length: 3897419 (3.7M)
+
+100%[======================================>] 3,897,419   2.66M/s   in 1.4s    
+
+2018-11-02 13:09:58 (2.66 MB/s) - "dmel-all-r6.24.gtf.gz" saved [3897419]
+
+--2018-11-02 13:09:58--  ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/gtf/md5sum.txt
+           => "md5sum.txt.1"
+==> CWD not required.
+==> PASV ... done.    ==> RETR md5sum.txt ... done.
+Length: 56
+
+100%[======================================>] 56          --.-K/s   in 0s      
+
+2018-11-02 13:09:58 (8.34 MB/s) - "md5sum.txt.1" saved [56]
+</code></pre>
