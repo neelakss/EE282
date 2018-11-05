@@ -173,7 +173,7 @@ $ zcat *.gtf* | cut -f3 | sort | uniq -c | sort -nr | nl
     15	    115 rRNA
     16	     32 snRNA
 </code></pre> 
-> 2. Total number of genes per chromosome arm (X, Y, 2L, 2R, 3L,
+> 2. Total number of genes per chromosome arm (X, Y, 2L, 2R, 3L, 3R, 4)
 <pre><code>
 $ zcat *.gtf* | grep -P '^\S+\s\S+\s+gene\b'| cut -f1 | grep -Eo 'X|Y|2L|2R|3L|3R|4' | sort |uniq -c | sort -nr | nl
 </code></pre> 
