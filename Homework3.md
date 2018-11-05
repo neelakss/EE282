@@ -79,21 +79,21 @@ md5sum: WARNING: 21 of 22 listed files could not be read
 #### Calculate the following for the whole genome
 > 1. Total number of nucleotides
 <pre><code>
-$ zgrep -v  "^>" *.gz | tr -d -C 'A\T\G\C\N' | wc -m
+$ zgrep -v  "^>" *.fasta*| tr -d -C 'A\T\G\C\N' | wc -m
 </code></pre> 
 <pre><code>
 143726002
 </code></pre> 
 > 2. Total number of Ns
 <pre><code>
-$ zgrep -v  "^>" *.gz | tr -d -C 'N' | wc -m
+$ zgrep -v  "^>" *.fasta* | tr -d -C 'N' | wc -m
 </code></pre> 
 <pre><code>
 1152978
 </code></pre> 
 > 3. Total number of Sequences
 <pre><code>
-$zgrep -c "^>" *.gz
+$zgrep -c "^>" *.fasta*
 </code></pre> 
 <pre><code>
 1870
