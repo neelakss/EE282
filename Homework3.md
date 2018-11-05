@@ -156,7 +156,7 @@ dmel-all-r6.24.gtf.gz: OK
 $ zcat *.gtf* | cut -f3 | sort | uniq -c | sort -nr | nl
 </code></pre> 
 <pre><code>
-1	 187315 exon
+     1	 187315 exon
      2	 161014 CDS
      3	  46339 5UTR
      4	  33358 3UTR
@@ -178,7 +178,7 @@ $ zcat *.gtf* | cut -f3 | sort | uniq -c | sort -nr | nl
 $ zcat *.gtf* | grep -P '^\S+\s\S+\s+gene\b'| cut -f1 | grep -Eo 'X|Y|2L|2R|3L|3R|4' | sort |uniq -c | sort -nr | nl
 </code></pre> 
 <pre><code>
-1	   4202 3R
+     1	   4202 3R
      2	   3628 2R
      3	   3501 2L
      4	   3464 3L
