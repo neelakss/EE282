@@ -153,15 +153,36 @@ dmel-all-r6.24.gtf.gz: OK
 #### Print a summary report with the following information:
 > 1. Total number of features of each type, sorted from the most common to the least common
 <pre><code>
-$ zgrep -v  "^>" *.gz | tr -d -C 'A\T\G\C\N' | wc -m
+$ zcat *.gtf* | cut -f3 | sort | uniq -c | sort -nr | nl
 </code></pre> 
 <pre><code>
-143726002
+1	 187315 exon
+     2	 161014 CDS
+     3	  46339 5UTR
+     4	  33358 3UTR
+     5	  30591 start_codon
+     6	  30533 stop_codon
+     7	  30507 mRNA
+     8	  17772 gene
+     9	   2961 ncRNA
+    10	    485 miRNA
+    11	    334 pseudogene
+    12	    312 tRNA
+    13	    299 snoRNA
+    14	    262 pre_miRNA
+    15	    115 rRNA
+    16	     32 snRNA
 </code></pre> 
 > 2. Total number of genes per chromosome arm (X, Y, 2L, 2R, 3L,
 <pre><code>
-$ zgrep -v  "^>" *.gz | tr -d -C 'N' | wc -m
+$ zcat *.gtf* | grep -P '^\S+\s\S+\s+gene\b'| cut -f1 | grep -Eo 'X|Y|2L|2R|3L|3R|4' | sort |uniq -c | sort -nr | nl
 </code></pre> 
 <pre><code>
-1152978
+1	   4202 3R
+     2	   3628 2R
+     3	   3501 2L
+     4	   3464 3L
+     5	   2676 X
+     6	    122 4
+     7	    113 Y
 </code></pre> 
