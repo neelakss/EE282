@@ -26,6 +26,10 @@ $ cp First_Document ../
 $ cd ..
 $ rm -r MyDir             # deletes directory even if the directory is not empty
 </code></pre> 
+
+### Question 1 Comments:
+Very nicely done! Great job. I would just recomend not using $ signs infront of each line as it makes it difficult to copy and paste into my console.
+
 2. Ask a question that requires a student to understand the difference between accessing a column in a matrix with text 
 indices versus accessing a column in a data frame with text indices. Your question should require an answer comparing the 
 following: mymatrix[,'col1'] vs. mydf[,'col1'] vs. mydf['col1'] vs. mydf$col1 vs. mydf[['col1']].  
