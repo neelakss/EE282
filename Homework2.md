@@ -79,3 +79,7 @@ $ ls -l
 $ chmod go+r New_file
 $ ls -l
 </code></pre>
+
+### Question 3 Comments:
+
+Good job. Provided you already extended +x permissions on your home directory (~) then this will work.
