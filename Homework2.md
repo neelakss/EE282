@@ -56,6 +56,11 @@ dimnames(mymatrix) <- list(c('row1', 'row2', 'row3'), c('col1', 'col2','col3','c
 print(mymatrix)
 mymatrix[,'col1',drop=F]          # calls column as a matrix
 </code></pre> 
+
+### Question 2 Comments:
+
+Good job. You could also leave off the ",drop=F" and get just the vector form.
+
 3. Ask a question that requires a student to understand how to share access to a directory and a file in that directory 
 on a Unix/Linux filesystem from their home directory with a colleague without exposing the user's entire directory. Your 
 question should require an answer using chmod {u,g,o}{+,-}{r,w,x} (not using octal permissions).
@@ -74,3 +79,7 @@ $ ls -l
 $ chmod go+r New_file
 $ ls -l
 </code></pre>
+
+### Question 3 Comments:
+
+Good job. Provided you already extended +x permissions on your home directory (~) then this will work.
