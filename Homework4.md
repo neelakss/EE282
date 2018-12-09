@@ -65,6 +65,12 @@ bioawk -c fastx '{ print $name, gc($seq) }' dmel-all-chromosome-r6.24.fasta > gc
 
 >3. Cumulative genome size sorted from largest to smallest sequences
 <pre><code>bioawk -c fastx ' { print length($seq) } ' fa_lte100.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nseq_length\t0" } { print "seq_length\t" $1 } ' > len_lte100.length
+plotCDF2  len_lte100.length len_lte100.png
 bioawk -c fastx ' { print length($seq) } ' fa_mt100.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nseq_length\t0" } { print "seq_length\t" $1 } ' > len_mt100.length
+plotCDF2  len_mt100.length len_mt100.png
 bioawk -c fastx ' { print length($seq) } ' dmel-all-chromosome-r6.24.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nseq_length\t0" } { print "seq_length\t" $1 } ' > len_wg.length
+plotCDF2  len_wg.length len_wg.png
 </code></pre>
+
+#### Genome assembly
+
