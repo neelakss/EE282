@@ -72,5 +72,19 @@ bioawk -c fastx ' { print length($seq) } ' dmel-all-chromosome-r6.24.fasta | sor
 plotCDF2  len_wg.length len_wg.png
 </code></pre>
 
-#### Genome assembly
+### Genome assembly
+#### Assemble a genome from MinION reads.  
+Hint: Read up on miniasm here. We're using one of the simplest assembly approaches possible. This assembly can literally be accomplished with three lines of code. This will literally take only 3 command lines.
 
+>1. Download the reads
+<pre><code>wget https://hpc.oit.uci.edu/~solarese/ee282/iso1_onp_a2_1kb.fastq.gz
+gunzip *.gz
+ln -sf iso1_onp_a2_1kb.fastq reads.fq
+</code></pre>
+>2. Use minimap to overlap reads
+<pre><code>qrsh -q epyc,abio128,free88i,free72i -pe openmp 32      
+minimap -t 32 -Sw5 -L100 -m0 reads.fq{,} | gzip -1 > onp.paf.gz
+</code></pre>
+>3. Use miniasm to construct an assembly
+<pre><code>miniasm -f reads.fq onp.paf.gz > reads.gfa
+</code></pre>
