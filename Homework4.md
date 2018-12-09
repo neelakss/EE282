@@ -88,3 +88,22 @@ minimap -t 32 -Sw5 -L100 -m0 reads.fq{,} | gzip -1 > onp.paf.gz
 >3. Use miniasm to construct an assembly
 <pre><code>miniasm -f reads.fq onp.paf.gz > reads.gfa
 </code></pre>
+
+#### Assembly assessment
+Hint: For MUMmer, you should run nucmer, delta-filter, and mummerplot.
+>1. Calculate the N50 of your assembly (this can be done with only faSize+awk+sort or with bioawk+awk+sort) and compare it to the Drosophila community reference's contig N50
+<pre><code>awk ' $0 ~/^S/ { print ">" $2" \n" $3 } ' reads.gfa \
+| tee >(n50 /dev/stdin > n50.txt) \
+| fold -w 60 \
+> unitigs.fa
+n50 () {
+  bioawk -c fastx ' { print length($seq); n=n+length($seq); } END { print n; } ' unitigs.fa \
+  | sort -rn \
+  | gawk ' NR == 1 { n = $1 }; NR > 1 { ni = $1 + ni; } ni/n > 0.5 { print $1; exit; } '
+}
+</code></pre>
+<pre><code>4494246
+</code></pre>
+>2. Compare your assembly to the contig assembly (not the scaffold assembly!) from Drosophila melanogaster on FlyBase using a dotplot constructed with MUMmer (Hint: use faSplitByN as demonstrated in class)
+>3. Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot (Hint: use plotCDF2 as demonstrated in class)
+>4. Calculate BUSCO scores of both assemblies and compare them
