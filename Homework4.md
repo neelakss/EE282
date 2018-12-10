@@ -71,7 +71,9 @@ plotCDF2  len_mt100.length len_mt100.png
 bioawk -c fastx ' { print length($seq) } ' dmel-all-chromosome-r6.24.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nseq_length\t0" } { print "seq_length\t" $1 } ' > len_wg.length
 plotCDF2  len_wg.length len_wg.png
 </code></pre>
-![Cummulative genome sizes for the whole genome](C:\Users\neelakshi\Desktop\len_wg.png)
+![Cummulative genome sizes for the whole genome](len_wg.png)
+![Cummulative genome sizes for the sequence sizes less than and equal to 100kb](len_lte100.png)
+![Cummulative genome sizes for the sequence sizes more than 100kb](len_mt100.png)
 ### Genome assembly
 #### Assemble a genome from MinION reads.  
 Hint: Read up on miniasm here. We're using one of the simplest assembly approaches possible. This assembly can literally be accomplished with three lines of code. This will literally take only 3 command lines.
