@@ -136,7 +136,7 @@ module load blast/2.2.31
 module load hmmer/3.1b2 
 module load boost/1.54.0
 source /pub/jje/ee282/bin/.buscorc
- BUSCO.py -c 32 -i unitigs.fa -m geno -o Busco_unitigs -l /pub/jje/ee282/bin/busco/lineages/diptera_odb9
+BUSCO.py -c 32 -i unitigs.fa -m geno -o Busco_unitigs -l /pub/jje/ee282/bin/busco/lineages/diptera_odb9
 </code></pre>
 <pre><code>
 </code></pre>
