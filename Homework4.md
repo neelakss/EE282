@@ -105,5 +105,32 @@ n50 () {
 <pre><code>4494246
 </code></pre>
 >2. Compare your assembly to the contig assembly (not the scaffold assembly!) from Drosophila melanogaster on FlyBase using a dotplot constructed with MUMmer (Hint: use faSplitByN as demonstrated in class)
+<pre><code>faSplitByN dmel-all-chromosome-r6.24.fasta wg_contigassembly.fasta 10
+source /pub/jje/ee282/bin/.qmbashrc
+module load gnuplot/4.6.0
+REF="wg_contigassembly.fasta"
+PREFIX="flybase"
+SGE_TASK_ID=1
+QRY=$(ls u*.fa | head -n $SGE_TASK_ID | tail -n 1)
+PREFIX=${PREFIX}_$(basename ${QRY} .fa)
+nucmer -l 100 -c 150 -d 10 -banded -D 5 -prefix ${PREFIX} ${REF} ${QRY}
+mummerplot --fat --layout --filter -p ${PREFIX} ${PREFIX}.delta -R ${REF} -Q ${QRY} --png
+</code></pre>
 >3. Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot (Hint: use plotCDF2 as demonstrated in class)
+<pre><code>
+</code></pre>
 >4. Calculate BUSCO scores of both assemblies and compare them
+<pre><code>module load augustus/3.2.1
+module load blast/2.2.31 
+module load hmmer/3.1b2 
+module load boost/1.54.0
+source /pub/jje/ee282/bin/.buscorc
+INPUTTYPE="geno"
+MYLIBDIR="/pub/jje/ee282/bin/busco/lineages/"
+MYLIB="diptera_odb9"
+OPTIONS="-l ${MYLIBDIR}${MYLIB}"
+##OPTIONS="${OPTIONS} -sp 4577"
+QRY="unitigs.fa"
+MYEXT=".fa"
+BUSCO.py -c 4 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})$${MYLIB}${SPTAG} ${OPTIONS}
+</code></pre>
