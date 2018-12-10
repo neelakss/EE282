@@ -64,7 +64,9 @@ infoseq -auto -nocolumns -delimiter ',' -only -noheading -name -length dmel-all-
 bioawk -c fastx '{ print $name, gc($seq) }' fa_mt100.fa > gc_mt100.txt
 bioawk -c fastx '{ print $name, gc($seq) }' dmel-all-chromosome-r6.24.fasta > gc_wg.txt
 </code></pre>
-
+![Histogram of GC% for the sequence sizes less than and equal to 100kb](gc_lte.jpg)
+![Histogram of GC% for the sequence sizes more than 100kb](gc_mt.jpg)
+![Histogram of GC% for the whole genome](gc_wg.jpg)
 >3. Cumulative genome size sorted from largest to smallest sequences
 <pre><code>bioawk -c fastx ' { print length($seq) } ' fa_lte100.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nseq_length\t0" } { print "seq_length\t" $1 } ' > len_lte100.length
 plotCDF2  len_lte100.length len_lte100.png
