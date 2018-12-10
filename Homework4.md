@@ -140,3 +140,16 @@ QRY="unitigs.fa"
 MYEXT=".fa"
 BUSCO.py -c 4 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})$${MYLIB}${SPTAG} ${OPTIONS}
 </code></pre>
+<pre><code>module load augustus/3.2.1
+module load blast/2.2.31 
+module load hmmer/3.1b2 
+module load boost/1.54.0
+source /pub/jje/ee282/bin/.buscorc
+INPUTTYPE="geno"
+MYLIBDIR="/pub/jje/ee282/bin/busco/lineages/"
+MYLIB="diptera_odb9"
+OPTIONS="-l ${MYLIBDIR}${MYLIB}"
+QRY="wg_contigassembly.fasta"
+MYEXT=".fasta" 
+BUSCO.py -c 4 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
+</code></pre>
