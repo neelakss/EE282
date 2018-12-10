@@ -124,9 +124,9 @@ mummerplot --fat --layout --filter -p ${PREFIX} ${PREFIX}.delta -R ${REF} -Q ${Q
 </code></pre>
 ![MUMmer plot for comparison](flybase_unitigs.png)
 >3. Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot (Hint: use plotCDF2 as demonstrated in class)
-<pre><code>bioawk -c fastx '{ print length($seq) }' unitigs.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nMinimap\t0" } { print "Minimap\t" $1 } ' > mini_unitigs
-bioawk -c fastx '{ print length($seq) }' wg_contigassembly.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nFB_Contigs\t0" } { print "FB_Contigs\t" $1 } ' > wg_contigass
-bioawk -c fastx '{ print length($seq) }' dmel-all-chromosome-r6.24.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nFB_Scaffold\t0" } {print "FB_Scaffold\t" $1 } ' > wg_scaffold
+<pre><code>bioawk -c fastx '{ print length($seq) }' unitigs.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nMini_Unitigs\t0" } { print "Mini_Unitigs\t" $1 } ' > mini_unitigs
+bioawk -c fastx '{ print length($seq) }' wg_contigassembly.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nWG_Contigass\t0" } { print "WG_Contigass\t" $1 } ' > wg_contigass
+bioawk -c fastx '{ print length($seq) }' dmel-all-chromosome-r6.24.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nWG_Scaffold\t0" } {print "WG_Scaffold\t" $1 } ' > wg_scaffold
 plotCDF2 mini_unitigs wg_contigass wg_scaffold CDF_compare.png
 </code></pre>
 ![CDF plot for comparison](CDF_compare.png)
