@@ -56,9 +56,9 @@ module load rstudio/0.99.9.9
 infoseq -auto -nocolumns -delimiter ',' -only -noheading -name -length fa_mt100.fa > hist_mt.txt
 infoseq -auto -nocolumns -delimiter ',' -only -noheading -name -length dmel-all-chromosome-r6.24.fasta > hist_wg.txt
 </code></pre>
-![Histogram of SLD for the sequence sizes less than and equal to 100kb](his_lte.png)
-![Histogram of SLD for the sequence sizes more than 100kb](hist_mt.png)
-![Histogram of SLD for the whole genome](hist_wg.png)
+![Histogram of SLD for the sequence sizes less than and equal to 100kb](his_lte.jpg)
+![Histogram of SLD for the sequence sizes more than 100kb](hist_mt.jpg)
+![Histogram of SLD for the whole genome](hist_wg.jpg)
 >2. Sequence GC% distribution
 <pre><code>bioawk -c fastx '{ print $name, gc($seq) }' fa_lte100.fa > gc_lte100.txt
 bioawk -c fastx '{ print $name, gc($seq) }' fa_mt100.fa > gc_mt100.txt
