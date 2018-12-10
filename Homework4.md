@@ -122,6 +122,7 @@ PREFIX=${PREFIX}_$(basename ${QRY} .fa)
 nucmer -l 100 -c 150 -d 10 -banded -D 5 -prefix ${PREFIX} ${REF} ${QRY}
 mummerplot --fat --layout --filter -p ${PREFIX} ${PREFIX}.delta -R ${REF} -Q ${QRY} --png
 </code></pre>
+![MUMmer plot for comparison](flybase_unitigs.png)
 >3. Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot (Hint: use plotCDF2 as demonstrated in class)
 <pre><code>
 </code></pre>
