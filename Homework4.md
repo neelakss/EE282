@@ -56,7 +56,7 @@ module load rstudio/0.99.9.9
 infoseq -auto -nocolumns -delimiter ',' -only -noheading -name -length fa_mt100.fa > hist_mt.txt
 infoseq -auto -nocolumns -delimiter ',' -only -noheading -name -length dmel-all-chromosome-r6.24.fasta > hist_wg.txt
 </code></pre>
-
+![Histogram for Sequence Length Distrubution for the whole genome](./pictures/image.png)
 >2. Sequence GC% distribution
 <pre><code>bioawk -c fastx '{ print $name, gc($seq) }' fa_lte100.fa > gc_lte100.txt
 bioawk -c fastx '{ print $name, gc($seq) }' fa_mt100.fa > gc_mt100.txt
@@ -71,7 +71,7 @@ plotCDF2  len_mt100.length len_mt100.png
 bioawk -c fastx ' { print length($seq) } ' dmel-all-chromosome-r6.24.fasta | sort -rn | awk ' BEGIN { print "Assembly\tLength\nseq_length\t0" } { print "seq_length\t" $1 } ' > len_wg.length
 plotCDF2  len_wg.length len_wg.png
 </code></pre>
-
+![Cummulative genome sizes for the whole genome](C:\Users\neelakshi\Desktop\len_wg.png)
 ### Genome assembly
 #### Assemble a genome from MinION reads.  
 Hint: Read up on miniasm here. We're using one of the simplest assembly approaches possible. This assembly can literally be accomplished with three lines of code. This will literally take only 3 command lines.
