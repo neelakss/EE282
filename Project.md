@@ -526,7 +526,9 @@ text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
  geneTree = flashClust(as.dist(dissTOM), method = "average");
  
  save(TOM,dissTOM,geneTree,adjacency,softPower,file=paste("TOM.rda",sep=""))
-
+</code></pre>
+![Soft Power] (soft_power.png)
+<pre><code>
 #load(file = "C:/Users/neela/Desktop/Miguel/WGCNA/TOM.rda")
 # Relating dendrogram with traits
 
