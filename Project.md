@@ -372,7 +372,7 @@ pairs(cbind(topPC1,pairsdat),col= cond,pch=19,upper.panel = panel.cor,main="Cova
 
 dev.off()
 </code></pre>
-[!Before Linear regession] 
+![Before Linear regession](Correlation_before.png)
 <pre><code>
 #Outlier Removal
 
@@ -487,7 +487,9 @@ panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...) { ## Useful f
 
 pairs(cbind(topPC1,pairsdat),col= cond,pch=19,upper.panel = panel.cor,main="Covariates and HTSeqCount Comparison -- |Spearman's rho| correlation values")
 dev.off()
-
+</code></pre>
+![Before Linear regession](Correlation_after.png)
+<pre><code>
 # Running WGCNA on linearily regressed data
 
 # Choose a set of soft-thresholding powers
@@ -517,15 +519,15 @@ plot(sft$fitIndices[,1], sft$fitIndices[,5],
 text(sft$fitIndices[,1], sft$fitIndices[,5], labels=powers, cex=cex1,col="red")
 
 
-# softPower = 20 ; ## Choose the power with R^2 > 0.8
-# adjacency = adjacency(as.data.frame(t(datExpr)), power = softPower, type = "signed",corFnc="bicor",corOptions = list(use = 'p', maxPOutliers = 0.1));
-# TOM = TOMsimilarity(adjacency);
-# dissTOM = 1-TOM
-# geneTree = flashClust(as.dist(dissTOM), method = "average");
-# 
-# save(TOM,dissTOM,geneTree,adjacency,softPower,file=paste("TOM.rda",sep=""))
+ softPower = 20 ; ## Choose the power with R^2 > 0.8
+ adjacency = adjacency(as.data.frame(t(datExpr)), power = softPower, type = "signed",corFnc="bicor",corOptions = list(use = 'p', maxPOutliers = 0.1));
+ TOM = TOMsimilarity(adjacency);
+ dissTOM = 1-TOM
+ geneTree = flashClust(as.dist(dissTOM), method = "average");
+ 
+ save(TOM,dissTOM,geneTree,adjacency,softPower,file=paste("TOM.rda",sep=""))
 
-load(file = "C:/Users/neela/Desktop/Miguel/WGCNA/TOM.rda")
+#load(file = "C:/Users/neela/Desktop/Miguel/WGCNA/TOM.rda")
 # Relating dendrogram with traits
 
 datExpr = as.data.frame(t(datExpr))
@@ -595,7 +597,9 @@ mLabelh1=c(mLabelh,rownames(geneSigs))
 pdf(paste("SignedDendro_Region.pdf",sep=""),height=25,width=20)
 plotDendroAndColors(geneTree,mColorh1,groupLabels=mLabelh1,addGuide=TRUE,dendroLabels=FALSE,main="Dendrogram With Different Module Cutting Parameters")
 dev.off()
-
+</code></pre>
+![All parameters for the dendogram](dendogram_all.png)
+<pre><code>
 # Using Paramters to find the clusters 
 mms=100
 ds =4
@@ -610,7 +614,9 @@ mLabelh <- c("Merged Colors",rownames(geneSigs))
 pdf(paste("FinalDendro_Region.pdf",sep=""),height=10,width=16)
 plotDendroAndColors(geneTree, mColorh, groupLabels = mLabelh,addGuide=TRUE,dendroLabels=FALSE,main= paste("Signed bicor network with power = ",softPower,"mms=",mms,"ds=",ds,"dthresh=",dthresh));
 dev.off()
-
+</code></pre>
+![Picked parameters for the dendogram](dendogram_final.png)
+<pre><code>
 # Eigengenes of the new merged modules:
 mergedColors = labels2colors(merge$colors);
 mergedMEs = merge$newMEs;
@@ -674,7 +680,9 @@ pdf(paste('Network_Plot_AllControls.pdf',sep=''),width=16,height=12)
 
 par(cex = 1.0)
 plotEigengeneNetworks(MEs, "Eigengene Network", marHeatmap = c(3,4,2,2), marDendro = c(0,4,1,2),cex.adjacency = 0.3,plotDendrograms = TRUE, xLabelsAngle = 90,heatmapColors=blueWhiteRed(150)[51:100])
-
+</code></pre>
+![Eigengenes correlation](eigengenes.png)
+<pre><code>
 ##
 toplot=t(MEs)
 cols=substring(colnames(MEs),3,20)
@@ -686,8 +694,12 @@ for (i in 1:nrow(toplot)) {
 }
 
 dev.off()
-
-# Plotting GO output
+</code></pre>
+![correaltion1](cor_1.png)
+![correaltion2](cor_2.png)
+![correaltion3](cor_3.png)
+<pre><code>
+# Plotting Module output
 
 geneInfo$SystemCode =rep("En",length=nrow(geneInfo))
 background=geneInfo[,"Ensembl.Gene.ID"]
@@ -721,3 +733,6 @@ for(i in 1:length(uniquemodcolors)){
   #print(ggplot(req_data.m, aes(names,variable)) + geom_tile(aes(fill = scale(value))) + scale_fill_gradient2(guide=FALSE,low = muted("steelblue1"), high ="red")+ theme_grey(base_size = 9)+ labs(x = "", y = "")+scale_x_discrete(expand = c(0, 0)) + scale_y_discrete(expand = c(0, 0))+ theme(text = element_text(size=22),axis.title.y=element_blank(),axis.text.y=element_blank(),axis.ticks.y=element_blank(),axis.title.x=element_blank(),axis.text.x=element_blank(),axis.ticks.x=element_blank())+ ggtitle(thismod))
   }
 </code></pre>
+![Module1](module_1.png)
+![Module2](module_2.png)
+![Module3](module_3.png)
