@@ -734,5 +734,5 @@ for(i in 1:length(uniquemodcolors)){
   }
 </code></pre>
 ![Module1](module_1.png)
-![Module2](module _2.png)
-![Module3](module _3.png)
+![Module2](module_2.png)
+![Module3](module_3.png)
