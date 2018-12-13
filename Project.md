@@ -488,7 +488,7 @@ panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...) { ## Useful f
 pairs(cbind(topPC1,pairsdat),col= cond,pch=19,upper.panel = panel.cor,main="Covariates and HTSeqCount Comparison -- |Spearman's rho| correlation values")
 dev.off()
 </code></pre>
-![Before Linear regession](Correlation_after.png)
+![Before Linear regession](Correaltion_after.png)
 <pre><code>
 # Running WGCNA on linearily regressed data
 
@@ -734,5 +734,5 @@ for(i in 1:length(uniquemodcolors)){
   }
 </code></pre>
 ![Module1](module_1.png)
-![Module2](module_2.png)
-![Module3](module_3.png)
+![Module2](module _2.png)
+![Module3](module _3.png)
