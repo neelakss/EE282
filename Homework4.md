@@ -112,6 +112,11 @@ reads <- as.numeric(levels(reads)[reads])
 jpeg('gc_wg.jpg')
 hist(reads, breaks = 12, col = "cyan", border = "pink",main = "Histogram for GC% (Whole Genome)")
 </code></pre>
+
+### Comments on "Summarize partitions of a genome assembly"
+
+Good job. For summarizing the genome partitions, life would have been a lot easier with ```faSize``` from the ```jje/kent``` module. But you got it to work with bash, so good job.
+
 ### Genome assembly
 #### Assemble a genome from MinION reads.  
 Hint: Read up on miniasm here. We're using one of the simplest assembly approaches possible. This assembly can literally be accomplished with three lines of code. This will literally take only 3 command lines.
